@@ -1,0 +1,24 @@
+<div class="urlexpanded">
+    <table>
+        <tr>
+            <td>Byte.ly link</td>
+            <td><%= appUrl %>/<%= link.id %></td>
+        </tr>
+        <tr>
+            <td>No. of hits</td>
+            <td><%= link.get("hits") %></td>
+        </tr>
+        <tr>
+            <td>Time of last hit</td>
+            <td><%= link.get("last_hit") %></td>
+        </tr>
+        <tr>
+            <td>Mobile visitor %</td>
+            <td>
+            <% if (link.get("hits") > 0) { %>
+                <%= link.get("mobile_hits") / link.get("hits") %>
+            <% } %>  
+            </td>
+        </tr>
+    </table>
+</div>

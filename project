@@ -1,0 +1,100 @@
+#!/bin/sh
+
+# Builds the go package in folder $1. 
+function gobuild() 
+{
+    cd $1
+    local result=$(go build 2>&1)
+    cd ..
+    echo "$result"
+}
+
+function gotest()
+{
+    cd $1
+    go test -v 
+    cd ..
+}
+
+function nodebuild() 
+{
+    cd app
+    node build.js
+    cd ..
+}
+
+# Drops the database and then rebuilds it. 
+function database_clean()
+{
+    # Yes, my database schema is in a bash script. 
+    # This is how leet hackers do things. 
+    create_users_stmt="
+        create table users(
+            id          serial,
+            email       text            not null,
+            password    text            not null,
+            token       text            not null
+        );
+    "
+
+    create_links_stmt="
+        create table links(
+            id          serial,
+            url         text            not null,
+            hash        text            not null,
+            hits        int             not null,
+            last_hit    text            not null,
+            mobile_hits int             not null,
+            created_on  text            not null,
+            user_id     int             not null
+        );
+    "
+
+    # Ensure that the user has a database created
+    createdb 2> /dev/null
+
+    # Rebuild the database
+    psql -c "drop database $1"
+    createdb $1
+
+    # Recreate the tables
+    psql -d $1 -c "$create_users_stmt"
+    psql -d $1 -c "$create_links_stmt"
+}
+
+case "$1" in 
+
+    run) echo "[+] Building API..."
+         api_errors=$(gobuild api)
+
+         echo "[+] Building frontend..."
+         nodebuild 
+
+         if [ -z "$api_errors" ] 
+            then
+            echo "[+] Starting API..."
+            ./api/api
+         else 
+            echo "$api_errors"
+         fi ;;
+
+    build) echo "[+] Building API..."
+           api_errors=$(gobuild api) 
+           echo "$api_errors" 
+
+           echo "[+] Building frontend..."
+           nodebuild ;;
+
+
+    clean) database_clean linkthing ;;
+
+    test) echo "[+] Cleaning test database..."
+          database_clean linkthingtest 
+          echo "[+] Testing API..."
+          gotest api ;;
+          
+    
+    *) echo "Nope" ;;
+
+esac
+

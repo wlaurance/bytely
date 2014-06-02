@@ -1,0 +1,9 @@
+<div id="navwrap">
+    <span id="logo">Byte.ly</span>
+    <% if (!Session.authenticated()) { %>
+        <a id="registerlink" href="#">register</a>
+        <a id="signinlink" href="#">sign in</a>
+    <% } else { %>
+        <a id="logoutlink" href="#">logout</a>
+    <% } %>
+</div>

@@ -1,0 +1,253 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster|Lato);
+html, body {
+  background-color: #fffffa;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: Lato; }
+
+input:focus {
+  outline: none; }
+
+nav {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  border-bottom: 2px solid #242b35;
+  color: #242b35; }
+  nav #navwrap {
+    height: 70px; }
+  nav #logo {
+    font-family: Lobster;
+    font-size: 48px;
+    padding: 0 30px; }
+  nav a {
+    float: right;
+    text-decoration: none;
+    color: #242b35;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 20px;
+    line-height: 68px;
+    text-transform: uppercase; }
+
+div#registerbox {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  margin: auto;
+  background-color: #242b35; }
+  div#registerbox input[type=text], div#registerbox input[type=password] {
+    width: 21%;
+    margin: 0 1%;
+    height: 30px;
+    border: 0;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 14px; }
+  div#registerbox input[type=submit] {
+    position: relative;
+    width: 100px;
+    margin: 0 2%;
+    text-transform: uppercase;
+    background-color: #fffffa;
+    border-radius: 5px;
+    border: 0;
+    height: 30px;
+    font-weight: 700;
+    font-size: 14px; }
+  div#registerbox form {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    margin: auto;
+    width: 70%;
+    height: 30px; }
+
+div#signinbox {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  margin: auto;
+  background-color: #242b35; }
+  div#signinbox input[type=text], div#signinbox input[type=password] {
+    width: 33%;
+    margin: 0 2%;
+    height: 30px;
+    border: 0;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 14px; }
+  div#signinbox input[type=submit] {
+    position: relative;
+    width: 100px;
+    margin: 0 2%;
+    text-transform: uppercase;
+    background-color: #fffffa;
+    border-radius: 5px;
+    border: 0;
+    height: 30px;
+    font-weight: 700;
+    font-size: 14px; }
+  div#signinbox form {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    margin: auto;
+    width: 70%;
+    height: 30px; }
+
+div#addlink {
+  position: relative;
+  height: 200px;
+  width: 90%;
+  margin: auto; }
+  div#addlink form#newlink {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 550px;
+    height: 50px; }
+    div#addlink form#newlink input#newurlbox {
+      width: 400px;
+      height: 50px;
+      border: 2px solid #242b35;
+      border-radius: 5px;
+      padding: 0 20px;
+      font-size: 18px; }
+    div#addlink form#newlink input#submiturl {
+      position: relative;
+      top: -2px;
+      width: 100px;
+      border: 0;
+      background-color: #242b35;
+      color: #fffffa;
+      height: 54px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 14px; }
+
+div#linksview {
+  position: relative; }
+  div#linksview div.urlcollapsed {
+    position: relative;
+    border: 2px solid #242b35;
+    border-bottom: 2px solid #242b35;
+    width: 600px;
+    height: 60px;
+    margin: 5px auto 0 auto;
+    color: #242b35;
+    background-color: #fffffa; }
+    div#linksview div.urlcollapsed:hover {
+      color: #fffffa;
+      background-color: #242b35;
+      cursor: pointer; }
+    div#linksview div.urlcollapsed span.linkurl {
+      overflow: hidden;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: inline-block;
+      width: 70%;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      position: absolute;
+      height: 28px;
+      font-size: 20px;
+      padding: 0 20px; }
+    div#linksview div.urlcollapsed span.linkdate {
+      display: inline-block;
+      width: 30%;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      position: absolute;
+      height: 22px;
+      right: 0;
+      text-align: center;
+      font-size: 16px;
+      font-style: italic; }
+  div#linksview div.urlexpanded {
+    position: relative;
+    height: 180px;
+    border: 2px solid #242b35;
+    width: 600px;
+    margin: auto;
+    border-top: 0; }
+    div#linksview div.urlexpanded table {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      height: 80%;
+      width: 100%;
+      font-size: 20px; }
+      div#linksview div.urlexpanded table td {
+        width: 300px;
+        text-align: center;
+        padding: 5px 0; }
+  div#linksview div.selected {
+    background-color: #242b35;
+    color: #fffffa; }
+
+.error {
+  background-color: #fbcfd2; }
+
+#trendypage {
+  top: -3px;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #242b35;
+  color: white; }
+  #trendypage h1 {
+    font-family: Lato;
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    font-size: 48px;
+    margin: 0;
+    color: #fffffa;
+    font-style: italic; }
+  #trendypage button#signupbutton {
+    position: relative;
+    display: block;
+    width: 200px;
+    margin: auto;
+    text-transform: uppercase;
+    background-color: #fffffa;
+    border-radius: 5px;
+    border: 0;
+    height: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #242b35; }
+
+h1 {
+  font-family: Lato;
+  text-align: center;
+  color: #242b35;
+  padding-top: 40px; }
+
+p {
+  width: 70%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+  margin: auto;
+  margin-bottom: 10000px; }
+
+footer {
+  width: 100%;
+  background-color: #242b35;
+  height: 400px; }

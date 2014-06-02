@@ -1,0 +1,24 @@
+<nav>
+</nav>
+
+<% if (Session.authenticated()) { %>
+<div id="addlink">
+    <form id="newlink">
+        <input id="newurlbox" type="text" placeholder="http://byte.ly">
+        <input id="submiturl" type="submit" value="shorten">
+    </form>
+</div>
+<% } else { %>
+<div id="trendypage">
+    <h1>7 bits better than bit.ly</h1>
+    <button id="signupbutton" value="sign up">sign up</button>
+</div>
+<h1>Bla bla we're the best startup evar</h1>
+<p>We don't have any content but we heard VCs won't fund us if they don't have to scroll
+for at least eight minutes to hit the footer of our landing page so here's a bunch of 
+white space (pls fund us).</p>
+<footer></footer>
+<% } %>
+
+<div id="linksview">
+</div>
